@@ -1,0 +1,13 @@
+CREATE table students(
+  id serial primary key,
+  surname VARCHAR(50),
+  physics BOOLEAN,
+  biology BOOLEAN,
+  chemistry BOOLEAN
+);
+
+COPY students(surname,physics,biology,chemistry) FROM '/home/vet/projects/univer/sql-students-9/students.csv' WITH (FORMAT csv, HEADER);
+
+SELECT * FROM students;
+SELECT * FROM students WHERE(physics = true AND biology = false);
+SELECT * FROM students WHERE(physics = false AND biology = true AND chemistry = true);
